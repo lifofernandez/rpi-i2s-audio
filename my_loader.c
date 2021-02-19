@@ -40,10 +40,10 @@ static struct asoc_simple_card_info snd_rpi_simple_card_info = {
 .card = "snd_rpi_simple_card", // -> snd_soc_card.name
 .name = "simple-card_codec_link", // -> snd_soc_dai_link.name
 .codec = "snd-soc-dummy", // "dmic-codec", // -> snd_soc_dai_link.codec_name
-.platform = "3f203000.i2s",
+.platform = "fe203000.i2s",
 .daifmt = SND_SOC_DAIFMT_I2S | SND_SOC_DAIFMT_NB_NF | SND_SOC_DAIFMT_CBS_CFS,
 .cpu_dai = {
-.name = "3f203000.i2s", // -> snd_soc_dai_link.cpu_dai_name
+.name = "fe203000.i2s", // -> snd_soc_dai_link.cpu_dai_name
 .sysclk = 0 },
 .codec_dai = {
 .name = "snd-soc-dummy-dai", //"dmic-codec", // -> snd_soc_dai_link.codec_dai_name
@@ -61,7 +61,7 @@ static struct platform_device snd_rpi_simple_card_device = {
 
 int hello_init(void)
 {
-const char *dmaengine = "bcm2708-dmaengine"; //module name
+const char *dmaengine = "bcm2835-dmaengine"; //module name
 int ret;
 
 ret = request_module(dmaengine);
